@@ -1,0 +1,8 @@
+name: 'ShinyApps.io deploy'
+description: 'Deploys a shiny app to shinyapps.io'
+outputs:
+    url:
+      description: 'Url to your shiny application'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
