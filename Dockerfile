@@ -8,4 +8,6 @@ RUN R -e 'install.packages(c("shiny", "rsconnect"))'
 
 COPY entrypoint.sh /entrypoint.sh
 
+RUN chmod +x /entrypoint.sh
+
 ENTRYPOINT ["/entrypoint.sh"]
