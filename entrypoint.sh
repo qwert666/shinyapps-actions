@@ -13,5 +13,3 @@ Rscript -e "rsconnect::deployApp(appDir='$APP_PATH', appName='$APP_NAME', launch
 
 url="https://$SHINY_USERNAME.shinyapps.io/$APP_NAME/"
 echo "::set-output name=url::$url"
-
-exit 0

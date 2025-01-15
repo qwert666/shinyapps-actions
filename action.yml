@@ -1,8 +1,35 @@
 name: 'ShinyApps.io deploy'
 description: 'Deploys a shiny app to shinyapps.io'
+inputs:
+  r-version:
+    description: 'R version to use'
+    required: true
+    default: '4.0.3'
+  SHINY_USERNAME:
+    description: 'Shinyapps.io username'
+    required: true
+  SHINY_TOKEN:
+    description: 'Shinyapps.io token'
+    required: true
+  SHINY_SECRET:
+    description: 'Shinyapps.io secret'
+    required: true
+  APP_NAME:
+    description: 'Name of the Shiny app'
+    required: true
+  SHINY_PATH:
+    description: 'Path to the Shiny app directory'
+    required: true
 outputs:
-    url:
-      description: 'Url to your shiny application'
+  url:
+    description: 'Url to your shiny application'
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  env:
+    - ${{ inputs.r-version }}
+    - ${{ inputs.SHINY_USERNAME }}
+    - ${{ inputs.SHINY_TOKEN }}
+    - ${{ inputs.SHINY_SECRET }}
+    - ${{ inputs.APP_NAME }}
+    - ${{ inputs.APP_DIR }}
